@@ -1,72 +1,504 @@
-<!DOCTYPE html>
+<script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(45, 42, 46, 0.98)';
+                navbar.style.backdropFilter = 'blur(15px)';
+            } else {
+                navbar.style.background = 'rgba(45, 42, 46, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe project tiles
+        document.querySelectorAll('.project-tile').forEach(tile => {
+            observer.observe(tile);
+        });
+
+        // Add stagger animation to project tiles
+        document.querySelectorAll('.project-tile').forEach((tile, index) => {
+            tile.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Kim Angelo - Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2D2A2E;
+            background: #403E41;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-slide-in {
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Navigation */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(45, 42, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #5C9A5C;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #A8CC8C;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #E3C8A0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: #A8CC8C;
+            background: rgba(168, 204, 140, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Welcome Section */
+        #welcome-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #2D2A2E 0%, #403E41 100%);
+            color: #E3C8A0;
+        }
+
+        .welcome-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #A8CC8C;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.3rem;
+            color: #E3C8A0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #5C9A5C;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4A804A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(92, 154, 92, 0.3);
+        }
+
+        .cta-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Projects Section */
+        #project-section {
+            padding: 6rem 2rem;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-tile {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-tile h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-tile p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #000;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            border: 2px solid #333;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .welcome-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            #project-section {
+                padding: 4rem 1rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-content h1 {
+                font-size: 2rem;
+            }
+
+            .project-tile {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav id="navbar">
-        <ul>
-            <li><a class="nav-link" href="#welcome-section">Home</a></li>
-            <li><a class="nav-link" href="#projects">Projects</a></li>
-            <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="#welcome-section" class="logo animate-slide-in">
+                <i class="fas fa-code"></i>
+                Kim Angelo
+            </a>
+            <ul class="nav-links">
+                <li><a href="#welcome-section"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#project-section"><i class="fas fa-folder"></i> Projects</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <!-- Welcome Section -->
     <section id="welcome-section">
-        <div class="welcome-content">
-            <h1>Hello, I'm Kim Angelo</h1>
-            <p>A passionate web developer building modern and responsive web applications.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>My Recent Work</h2>
-        <div class="projects-grid">
-            <a href="https://codepen.io/kimangelopogi/full/PwqKPdZ" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/37af65/fff?text=Project+1" alt="Tribute Page Project">
-                <p class="project-title">Tribute Page</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/zxGdrNX" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/007bff/fff?text=Project+2" alt="Survey Form Project">
-                <p class="project-title">Survey Form</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/xbGLZpx" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/f0ad4e/fff?text=Project+3" alt="Technical Documentation Project">
-                <p class="project-title">Technical Documentation</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/gbpxPzx" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/5bc0de/fff?text=Project+4" alt="Product Landing Page Project">
-                <p class="project-title">Product Landing Page</p>
+        <div class="welcome-content animate-fade-in">
+            <h1>Full Stack Developer</h1>
+            <p class="welcome-subtitle">&lt; Building modern web applications with clean, efficient code /&gt;</p>
+            <a href="#project-section" class="cta-button animate-float">
+                <i class="fas fa-arrow-down"></i>
+                View My Projects
             </a>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Let's work together...</h2>
-        <p>How do you take your coffee?</p>
-        <div class="contact-links">
-            <a id="profile-link" href="https://github.com/kimangelopogi" target="_blank" class="contact-details">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.freecodecamp.org/Kimangelo" target="_blank" class="contact-details">
-                <i class="fab fa-free-code-camp"></i> freeCodeCamp
-            </a>
-            <a href="mailto:your.kimangelobasada20@gmail.com" class="contact-details">
-                <i class="fas fa-at"></i> Send a Mail
-            </a>
-            <a href="tel:+1-555-555-5555" class="contact-details">
-                <i class="fas fa-phone"></i> Call Me
-            </a>
+    <!-- Projects Section -->
+    <section id="project-section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-tile">
+                    <h3><i class="fas fa-tasks"></i> Task Manager</h3>
+                    <p>A collaborative task management application built with React and Node.js. Features real-time updates, user authentication, and team collaboration tools.</p>
+                    <a href="https://codepen.io/kimangelopogi/full/qEdXvVM" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+                
+                <div class="project-tile">
+                    <h3><i class="fas fa-shopping-cart"></i> E-Commerce Store</h3>
+                    <p>Full-featured online store with payment processing, inventory management, and admin dashboard. Built using React, Express, and MongoDB.</p>
+                    <a href="https://codepen.io/kimangelopogi/full/pvJrYpe" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+                
+                <div class="project-tile">
+                    <h3><i class="fas fa-cloud-sun"></i> Weather Dashboard</h3>
+                    <p>Interactive weather application with location-based forecasts, historical data, and responsive design. Integrates with multiple weather APIs.</p>
+                    <a href="https://codepen.io/kimangelopogi/full/LEVjaeg" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+                
+                <div class="project-tile">
+                    <h3><i class="fas fa-chart-line"></i> Budget Tracker</h3>
+                    <p>Personal finance application with expense tracking, budget planning, and data visualization. Features secure authentication and data encryption.</p>
+                    <a href="https://codepen.io/kimangelopogi/full/raVzRpY" class="project-link">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="social-links">
+                <a href="https://github.com/sarah-martinez" id="profile-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/sarah-martinez-dev" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="mailto:sarah@example.com">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Kim Angelo. All rights reserved.</p>
+        <p>&copy; 2025 Sarah Martinez. All rights reserved.</p>
     </footer>
 </body>
 </html>
