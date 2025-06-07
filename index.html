@@ -3,70 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <meta name="description" content="Personal portfolio of Kim Angelo, a passionate web developer">
+    <meta name="keywords" content="web developer, portfolio, frontend, HTML, CSS, JavaScript">
+    <meta name="author" content="Kim Angelo">
+    <title>Kim Angelo | Web Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav id="navbar">
-        <ul>
-            <li><a class="nav-link" href="#welcome-section">Home</a></li>
-            <li><a class="nav-link" href="#projects">Projects</a></li>
-            <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="welcome-section">
-        <div class="welcome-content">
-            <h1>Hello, I'm Kim Angelo</h1>
-            <p>A passionate web developer building modern and responsive web applications.</p>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    
+    <header id="navbar">
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a class="nav-link" href="#welcome-section">Home</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#skills">Skills</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <section id="projects">
-        <h2>My Recent Work</h2>
-        <div class="projects-grid">
-            <a href="https://codepen.io/kimangelopogi/full/PwqKPdZ" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/37af65/fff?text=Project+1" alt="Tribute Page Project">
-                <p class="project-title">Tribute Page</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/zxGdrNX" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/007bff/fff?text=Project+2" alt="Survey Form Project">
-                <p class="project-title">Survey Form</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/xbGLZpx" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/f0ad4e/fff?text=Project+3" alt="Technical Documentation Project">
-                <p class="project-title">Technical Documentation</p>
-            </a>
-            <a href="https://codepen.io/kimangelopogi/full/gbpxPzx" target="_blank" class="project-tile">
-                <img class="project-image" src="https://placehold.co/400x300/5bc0de/fff?text=Project+4" alt="Product Landing Page Project">
-                <p class="project-title">Product Landing Page</p>
-            </a>
-        </div>
-    </section>
+    <main id="main-content">
+        <section id="welcome-section" aria-labelledby="welcome-heading">
+            <div class="container">
+                <div class="welcome-content">
+                    <h1 id="welcome-heading">Hello, I'm <span class="highlight">Kim Angelo</span></h1>
+                    <p class="subtitle">A passionate web developer building modern, accessible, and responsive web applications.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Scroll down</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Let's work together...</h2>
-        <p>How do you take your coffee?</p>
-        <div class="contact-links">
-            <a id="profile-link" href="https://github.com/kimangelopogi" target="_blank" class="contact-details">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.freecodecamp.org/Kimangelo" target="_blank" class="contact-details">
-                <i class="fab fa-free-code-camp"></i> freeCodeCamp
-            </a>
-            <a href="mailto:your.kimangelobasada20@gmail.com" class="contact-details">
-                <i class="fas fa-at"></i> Send a Mail
-            </a>
-            <a href="tel:+1-555-555-5555" class="contact-details">
-                <i class="fas fa-phone"></i> Call Me
-            </a>
-        </div>
-    </section>
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <div class="container">
+                <h2 id="projects-heading">My Recent Work</h2>
+                <p class="section-description">Here are some of my featured projects. Each one was built to solve specific problems and demonstrate different skills.</p>
+                
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <a href="https://codepen.io/kimangelopogi/full/PwqKPdZ" target="_blank" rel="noopener noreferrer" class="project-tile">
+                            <div class="project-image-container">
+                                <img class="project-image" 
+                                     src="https://placehold.co/600x400/37af65/fff?text=Tribute+Page" 
+                                     alt="Screenshot of Tribute Page Project" 
+                                     loading="lazy">
+                                <div class="project-overlay">
+                                    <span class="view-project">View Project <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Tribute Page</h3>
+                                <p class="project-description">A responsive tribute page honoring a notable figure, built with semantic HTML and CSS.</p>
+                                <ul class="project-tags">
+                                    <li>HTML5</li>
+                                    <li>CSS3</li>
+                                    <li>Responsive</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card">
+                        <a href="https://codepen.io/kimangelopogi/full/zxGdrNX" target="_blank" rel="noopener noreferrer" class="project-tile">
+                            <div class="project-image-container">
+                                <img class="project-image" 
+                                     src="https://placehold.co/600x400/007bff/fff?text=Survey+Form" 
+                                     alt="Screenshot of Survey Form Project" 
+                                     loading="lazy">
+                                <div class="project-overlay">
+                                    <span class="view-project">View Project <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Survey Form</h3>
+                                <p class="project-description">An interactive survey form with various input types and validation.</p>
+                                <ul class="project-tags">
+                                    <li>Forms</li>
+                                    <li>Validation</li>
+                                    <li>UX</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card">
+                        <a href="https://codepen.io/kimangelopogi/full/xbGLZpx" target="_blank" rel="noopener noreferrer" class="project-tile">
+                            <div class="project-image-container">
+                                <img class="project-image" 
+                                     src="https://placehold.co/600x400/f0ad4e/fff?text=Tech+Docs" 
+                                     alt="Screenshot of Technical Documentation Project" 
+                                     loading="lazy">
+                                <div class="project-overlay">
+                                    <span class="view-project">View Project <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Technical Documentation</h3>
+                                <p class="project-description">A comprehensive technical documentation page with navigation sidebar.</p>
+                                <ul class="project-tags">
+                                    <li>Documentation</li>
+                                    <li>Navigation</li>
+                                    <li>Layout</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <article class="project-card">
+                        <a href="https://codepen.io/kimangelopogi/full/gbpxPzx" target="_blank" rel="noopener noreferrer" class="project-tile">
+                            <div class="project-image-container">
+                                <img class="project-image" 
+                                     src="https://placehold.co/600x400/5bc0de/fff?text=Landing+Page" 
+                                     alt="Screenshot of Product Landing Page Project" 
+                                     loading="lazy">
+                                <div class="project-overlay">
+                                    <span class="view-project">View Project <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Product Landing Page</h3>
+                                <p class="project-description">A modern product landing page with responsive design and call-to-action elements.</p>
+                                <ul class="project-tags">
+                                    <li>Landing Page</li>
+                                    <li>Marketing</li>
+                                    <li>CTA</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                
+                <div class="more-projects">
+                    <a href="https://codepen.io/kimangelopogi" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        View All Projects <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+            <div class="container">
+                <h2 id="skills-heading">My Skills</h2>
+                <p class="section-description">Technologies and tools I work with to create amazing web experiences.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-html5"></i> HTML5</li>
+                            <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                            <li><i class="fab fa-js"></i> JavaScript</li>
+                            <li><i class="fab fa-react"></i> React</li>
+                            <li><i class="fab fa-sass"></i> Sass</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-node-js"></i> Node.js</li>
+                            <li><i class="fas fa-database"></i> MongoDB</li>
+                            <li><i class="fas fa-server"></i> Express</li>
+                            <li><i class="fas fa-fire"></i> Firebase</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & More</h3>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-git-alt"></i> Git</li>
+                            <li><i class="fab fa-github"></i> GitHub</li>
+                            <li><i class="fas fa-terminal"></i> CLI</li>
+                            <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+                            <li><i class="fas fa-universal-access"></i> Accessibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Let's Work Together</h2>
+                <p class="section-description">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>How to reach me</h3>
+                        <p>I'm currently available for freelance work or full-time positions. Feel free to contact me through any of these channels:</p>
+                        
+                        <div class="contact-links">
+                            <a id="profile-link" href="https://github.com/kimangelopogi" target="_blank" rel="noopener noreferrer" class="contact-details">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://www.freecodecamp.org/Kimangelo" target="_blank" rel="noopener noreferrer" class="contact-details">
+                                <i class="fab fa-free-code-camp"></i> freeCodeCamp
+                            </a>
+                            <a href="mailto:kimangelobasada20@gmail.com" class="contact-details">
+                                <i class="fas fa-envelope"></i> Email Me
+                            </a>
+                            <a href="tel:+1-555-555-5555" class="contact-details">
+                                <i class="fas fa-phone-alt"></i> Call Me
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Kim Angelo. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Kim Angelo</h3>
+                    <p>Building digital experiences that matter, one line of code at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#welcome-section">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/kimangelopogi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://codepen.io/kimangelopogi" target="_blank" rel="noopener noreferrer" aria-label="CodePen">
+                            <i class="fab fa-codepen"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Kim Angelo. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart"></i> and <i class="fas fa-code"></i></p>
+            </div>
+        </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
